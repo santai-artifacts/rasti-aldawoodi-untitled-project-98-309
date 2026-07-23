@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;300&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  background: #05070f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Subtle radial glow behind the clock */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 50%, #071830 0%, #05070f 65%);
+  pointer-events: none;
+}
+
+.clock-wrap {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.time {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: clamp(60px, 13vw, 148px);
+  font-weight: 200;
+  letter-spacing: -2px;
+  color: #dbeafe;
+  text-shadow:
+    0 0 40px rgba(96, 165, 250, 0.25),
+    0 0 100px rgba(96, 165, 250, 0.08);
+  line-height: 1;
+  /* colon pulse */
+}
+
+/* Animate the colons gently */
+.time .colon {
+  display: inline-block;
+  animation: pulse 1s step-start infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.2; }
+}
+
+.date {
+  margin-top: 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(13px, 2.2vw, 20px);
+  font-weight: 300;
+  letter-spacing: 5px;
+  color: #3b82f6;
+  text-transform: uppercase;
+}
+
+.tz {
+  margin-top: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: #1e3a5f;
+}
+
+/* Thin horizontal rule between sections */
+.divider {
+  width: 40px;
+  height: 1px;
+  background: #1e3a5f;
+  margin: 20px auto 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .time .colon { animation: none; }
+}

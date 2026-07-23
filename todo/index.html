@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Tasks</h1>
+      <span class="count" id="count">0 left</span>
+    </header>
+    <div class="input-row">
+      <input type="text" id="new-task" placeholder="Add a new task…" autocomplete="off">
+      <button id="add-btn" aria-label="Add task">+</button>
+    </div>
+    <ul id="task-list"></ul>
+    <footer>
+      <div class="filters">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="active">Active</button>
+        <button class="filter" data-filter="done">Done</button>
+      </div>
+      <button id="clear-done">Clear done</button>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
